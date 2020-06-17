@@ -1,5 +1,5 @@
 function maze(mazeHeight = 6, mazeWidth = 6, velocity = 2) {
-	const { Engine, Render, Runner, World, Bodies, Body, Events, Mouse, MouseConstraint } = Matter;
+	const { Engine, Render, Runner, World, Bodies, Body, Events } = Matter;
 
 	const cellsHorizontal = mazeWidth;
 	const cellsVertical = mazeHeight;
@@ -29,13 +29,6 @@ function maze(mazeHeight = 6, mazeWidth = 6, velocity = 2) {
 	});
 	Render.run(render);
 	Runner.run(Runner.create(), engine);
-
-	World.add(
-		world,
-		MouseConstraint.create(engine, {
-			mouse: Mouse.create(render.canvas)
-		})
-	);
 
 	//Walls
 	const walls = [
