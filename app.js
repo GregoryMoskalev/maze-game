@@ -178,34 +178,34 @@ World.add(world, ball);
 
 upButton.onclick = () => {
 	const { x, y } = ball.velocity;
-	Body.setVelocity(ball, { x, y: -10 });
+	Body.setVelocity(ball, { x, y: x - 2 });
 };
 downButton.onclick = () => {
 	const { x, y } = ball.velocity;
-	Body.setVelocity(ball, { x, y: 10 });
+	Body.setVelocity(ball, { x, y: x + 2 });
 };
 leftButton.onclick = () => {
 	const { x, y } = ball.velocity;
-	Body.setVelocity(ball, { x: -10, y });
+	Body.setVelocity(ball, { x: x - 2, y });
 };
 rightButton.onclick = () => {
 	const { x, y } = ball.velocity;
-	Body.setVelocity(ball, { x: 10, y });
+	Body.setVelocity(ball, { x: x + 2, y });
 };
 
 document.addEventListener('keydown', (event) => {
 	const { x, y } = ball.velocity;
 	if (event.keyCode === 87 || event.keyCode === 38) {
-		Body.setVelocity(ball, { x, y: -10 });
+		Body.setVelocity(ball, { x, y: y - 2 });
 	}
 	if (event.keyCode === 68 || event.keyCode === 39) {
-		Body.setVelocity(ball, { x: 10, y });
+		Body.setVelocity(ball, { x: x + 2, y });
 	}
 	if (event.keyCode === 83 || event.keyCode === 40) {
-		Body.setVelocity(ball, { x, y: 10 });
+		Body.setVelocity(ball, { x, y: y + 2 });
 	}
 	if (event.keyCode === 65 || event.keyCode === 37) {
-		Body.setVelocity(ball, { x: -10, y });
+		Body.setVelocity(ball, { x: x - 2, y });
 	}
 });
 

@@ -22,9 +22,9 @@ h1 {
 #virtual-keyboard {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(2, 1fr);
+	grid-template-rows: repeat(3, 1fr);
 	width: 150px;
-	height: 100px;
+	height: 150px;
 	position: fixed;
 	left: 0;
 	bottom: 0;
@@ -33,15 +33,23 @@ h1 {
 	margin: 10px;
 }
 #up-button {
+	width: 50px;
+	height: 50px;
 	grid-area: 1/2/2/2;
 }
 #right-button {
+	width: 50px;
+	height: 50px;
 	grid-area: 3/3/2/4;
 }
 #down-button {
-	grid-area: 2/2/2/2;
+	width: 50px;
+	height: 50px;
+	grid-area: 3/2/4/2;
 }
 #left-button {
+	width: 50px;
+	height: 50px;
 	grid-area: 2/1/3/2;
 }
 @media (min-width: 961px) {
