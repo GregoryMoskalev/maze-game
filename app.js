@@ -8,6 +8,11 @@ const height = window.innerHeight;
 const unitLengthX = width / cellsHorizontal;
 const unitLengthY = height / cellsVertical;
 
+const upButton = document.querySelector('#up-button');
+const rightButton = document.querySelector('#right-button');
+const downButton = document.querySelector('#down-button');
+const leftButton = document.querySelector('#left-button');
+
 const engine = Engine.create();
 engine.world.gravity.y = 0;
 const { world } = engine;
@@ -171,18 +176,35 @@ const ball = Bodies.circle(unitLengthX / 2, unitLengthY / 2, ballRadius, {
 
 World.add(world, ball);
 
+upButton.onclick = () => {
+	const { x, y } = ball.velocity;
+	Body.setVelocity(ball, { x, y: -10 });
+};
+downButton.onclick = () => {
+	const { x, y } = ball.velocity;
+	Body.setVelocity(ball, { x, y: 10 });
+};
+leftButton.onclick = () => {
+	const { x, y } = ball.velocity;
+	Body.setVelocity(ball, { x: -10, y });
+};
+rightButton.onclick = () => {
+	const { x, y } = ball.velocity;
+	Body.setVelocity(ball, { x: 10, y });
+};
+
 document.addEventListener('keydown', (event) => {
 	const { x, y } = ball.velocity;
-	if (event.keyCode === 87) {
+	if (event.keyCode === 87 || event.keyCode === 38) {
 		Body.setVelocity(ball, { x, y: -10 });
 	}
-	if (event.keyCode === 68) {
+	if (event.keyCode === 68 || event.keyCode === 39) {
 		Body.setVelocity(ball, { x: 10, y });
 	}
-	if (event.keyCode === 83) {
+	if (event.keyCode === 83 || event.keyCode === 40) {
 		Body.setVelocity(ball, { x, y: 10 });
 	}
-	if (event.keyCode === 65) {
+	if (event.keyCode === 65 || event.keyCode === 37) {
 		Body.setVelocity(ball, { x: -10, y });
 	}
 });
